@@ -4,8 +4,7 @@ public final static int NUM_ROWS = 5;
 public final static int NUM_COLS = 5;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> mines = new ArrayList <MSButton>(); //ArrayList of just the minesweeper buttons that are mined
-private ArrayList <MSButton> mines1 = new ArrayList <MSButton>();
-private ArrayList <MSButton> mines2 = new ArrayList <MSButton>();
+
 void setup ()
 {
     size(400, 400);
@@ -25,15 +24,15 @@ void setup ()
 }
 public void setMines()
 {
-    // while(mines.size() < NUM_MINES)
+    while(mines.size() < 3)
     {
         int r = (int)(Math.random() * NUM_ROWS);
         int c = (int)(Math.random() * NUM_COLS);
-        // if (!MSButton(r,c).contains(mines))
+        if (!MSButton.contains(mines))
+        {
         mines.add(buttons[r][c]);
-        mines1.add(buttons[r][c]);
-        mines2.add(buttons[r][c]);
         System.out.println(r + ", " + c);
+        }
     }
 }
 
@@ -63,9 +62,9 @@ public boolean isValid(int r, int c)
 }
 public int countMines(int row, int col)
 {
-    int NUM_MINES = 0;
+    int numMines = 5;
     //your code here
-    return NUM_MINES;
+    return numMines;
 }
 public class MSButton
 {
